@@ -25,12 +25,12 @@ resource "azurerm_app_service" "app" {
   app_service_plan_id = azurerm_app_service_plan.asp.id
 
   site_config {
-    linux_fx_version = "DOCKER|myregistry.azurecr.io/myimage:latest"
+    linux_fx_version = "DOCKER|demoregistry369.azurecr.io/myimage:latest"
   }
 
   app_settings = {
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
-    DOCKER_REGISTRY_SERVER_URL          = "https://myregistry.azurecr.io"
+    DOCKER_REGISTRY_SERVER_URL          = "https://demoregistry369.azurecr.io"
     DOCKER_REGISTRY_SERVER_USERNAME     = var.docker_registry_username
     DOCKER_REGISTRY_SERVER_PASSWORD     = var.docker_registry_password
   }
