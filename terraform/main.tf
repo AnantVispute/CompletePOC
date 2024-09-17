@@ -24,9 +24,9 @@ resource "azurerm_app_service" "app" {
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.asp.id
 
-  site_config {
-    linux_fx_version = "DOCKER|demoregistry369.azurecr.io/myimage:latest"
-  }
+    application_stack {
+      node_version = "14-lts"
+    }
 
   app_settings = {
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
