@@ -97,3 +97,4 @@ jobs:
 
     - name: Deploy to Azure Web App
       run: az webapp config container set --name myWebApp --resource-group myResourceGroup --docker-custom-image-name myregistry.azurecr.io/myimage:latest
+
