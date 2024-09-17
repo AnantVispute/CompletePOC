@@ -45,13 +45,13 @@ jobs:
         az acr login --name ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
 
     - name: Build Docker image
-      run: docker build -t ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}/mywebapppoc360:${{ github.sha }} .
+      run: docker build -t ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}.azurecr.io/mywebapppoc360:${{ github.sha }} .
 
     # - name: Login to Azure Container Registry
     #   run: echo ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }} | docker login ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }} --password-stdin
 
     - name: Push Docker image
-      run: docker push ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}/mywebapppoc360:${{ github.sha }}
+      run: docker push ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}.azurecr.io/mywebapppoc360:${{ github.sha }}
 
     # - name: Build and push Docker image
     #   run: |
