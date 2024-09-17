@@ -45,9 +45,15 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
+      working-directory: ./.github/templates
 
+    - name: Terraform Plan
+      run: terraform plan -out=tfplan
+      working-directory: ./.github/templates
+    
     - name: Terraform Apply
       run: terraform apply -auto-approve
+      working-directory: ./.github/templates
 
   build_docker_image:
     runs-on: ubuntu-latest
