@@ -1,0 +1,6 @@
+@CompletePOC_HostAddress = http://localhost:5199
+
+GET {{CompletePOC_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
