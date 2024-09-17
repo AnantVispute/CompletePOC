@@ -75,7 +75,7 @@ jobs:
       run: echo ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }} | docker login myregistry.azurecr.io -u ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }} --password-stdin
 
     - name: Push Docker image
-      run: docker push myregistry.azurecr.io/myimage:latest
+      run: docker push demoregistry369.azurecr.io/myimage:latest
 
   deploy_application:
     runs-on: ubuntu-latest
