@@ -12,6 +12,7 @@ resource "azurerm_app_service_plan" "asp" {
   name                = "myAppServicePlanPOC362"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
+  os_type             = "Linux"
   sku {
     tier = "Basic"
     size = "B1"
@@ -25,9 +26,7 @@ resource "azurerm_app_service" "app" {
   app_service_plan_id = azurerm_app_service_plan.asp.id
 
   site_config {
-    application_stack {
-      node_version = "14-lts"
-    }
+    linux_fx_version = "DOCKER|demoregistry369.azurecr.io/mywebapppoc362:latest"
   }
 
   app_settings = {
