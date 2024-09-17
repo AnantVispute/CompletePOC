@@ -12,7 +12,7 @@ resource "azurerm_app_service_plan" "asp" {
   name                = "myAppServicePlanPOC362"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  os_type             = "Linux"
+  kind                = "Linux"
   sku {
     tier = "Basic"
     size = "B1"
