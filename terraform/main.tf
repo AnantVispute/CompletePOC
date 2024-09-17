@@ -4,12 +4,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myResourceGroupPOC361"
+  name     = "myResourceGroupPOC362"
   location = "East US"
 }
 
 resource "azurerm_app_service_plan" "asp" {
-  name                = "myAppServicePlanPOC361"
+  name                = "myAppServicePlanPOC362"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   sku {
@@ -19,13 +19,15 @@ resource "azurerm_app_service_plan" "asp" {
 }
 
 resource "azurerm_app_service" "app" {
-  name                = "myWebAppPOC361"
+  name                = "myWebAppPOC362"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.asp.id
 
   site_config {
-    linux_fx_version = "DOCKER|demoregistry369.azurecr.io/mywebapppoc360:latest"
+    application_stack {
+      node_version = "14-lts"
+    }
   }
 
   app_settings = {
